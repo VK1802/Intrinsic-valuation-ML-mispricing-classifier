@@ -1,10 +1,13 @@
-import os
+import streamlit as st
+import pandas as pd
+import pickle
 
-# Load model if it exists, otherwise run in demo mode
-if os.path.exists("models/final_model.pkl"):
-    model = pickle.load(open("models/final_model.pkl", "rb"))
-else:
-    model = None
+# Load model
+model = pickle.load(open("models/final_model.pkl","rb"))
+
+st.title("Stock Mispricing Classifier")
+
+st.write("Predict if a stock is undervalued or overvalued.")
 
 st.title("Stock Mispricing Classifier")
 
